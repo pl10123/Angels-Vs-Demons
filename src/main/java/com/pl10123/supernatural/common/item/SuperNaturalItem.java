@@ -7,9 +7,9 @@ public class SuperNaturalItem extends Item {
 
     public SuperNaturalItem(String name){
         super();
-        this.setUnlocalizedName(name);
+        this.setUnlocalizedName(Constants.MODID + "." + name);
         this.setCreativeTab(Constants.BASIC_TAB);
-
+        this.setRegistryName(name);
     }
 
 }

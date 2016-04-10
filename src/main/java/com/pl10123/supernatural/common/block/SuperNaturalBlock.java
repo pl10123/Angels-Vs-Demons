@@ -16,10 +16,11 @@ public class SuperNaturalBlock extends Block {
     public SuperNaturalBlock(String unLocalizedName, Material material, float hardness, float resistance){
         super(material);
 
-        this.setUnlocalizedName(unLocalizedName);
+        this.setUnlocalizedName(Constants.MODID + "." + unLocalizedName);
         this.setHardness(hardness);
         this.setResistance(resistance);
         this.setCreativeTab(Constants.BASIC_TAB);
+        this.setRegistryName(unLocalizedName);
     }
 
 	@Override

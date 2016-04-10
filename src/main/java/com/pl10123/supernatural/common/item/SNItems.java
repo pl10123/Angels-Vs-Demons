@@ -6,19 +6,19 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class SNItems {
 
     //Ingots
-    public static Item silverIngot;
+    public static Item silverIngot = new SuperNaturalItem("silverIngot");
 
     //Dusts
-    public static Item saltDust;
+    public static Item saltDust = new SuperNaturalItem("saltDust");
     
     //Chalks
     public static Item whiteChalk;
 
     public static void initItems(){
     	
-        GameRegistry.registerItem(silverIngot = new SuperNaturalItem("silverIngot"), "silverIngot");
+    	GameRegistry.register(silverIngot);
 
-        GameRegistry.registerItem(saltDust = new SuperNaturalItem("saltDust"), "saltDust");
+        GameRegistry.register(saltDust);
         
        // GameRegistry.registerItem(whiteChalk = new ItemChalk(), "chalk"); 
     }

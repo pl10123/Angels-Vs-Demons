@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 
 public final class SNBlockRender {
 
@@ -22,7 +23,7 @@ public final class SNBlockRender {
     }
 
     private static void registerBlock(Block block) {
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Constants.MODID + ":" + block.getUnlocalizedName().substring(5), "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(new ResourceLocation(Constants.MODID, block.getRegistryName().getResourcePath()), "inventory"));
 
     }
 }
