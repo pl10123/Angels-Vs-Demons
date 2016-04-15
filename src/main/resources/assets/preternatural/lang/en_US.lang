@@ -1,0 +1,9 @@
+itemGroup.modBasicTab=Preternatural
+
+tile.preternatural.saltOre.name=Salt Ore
+tile.preternatural.silverOre.name=Silver Ore
+
+tile.preternatural.silverBlock.name=Silver Block
+
+item.saltDust.name=Salt
+item.silverIngot.name=Silver Ingot
