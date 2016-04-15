@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = Constants.MODID, name = Constants.MODNAME, version = Constants.VERSION)
 public class SuperNatural {
 
-    @Mod.Instance
+    @Mod.Instance(Constants.MODID)
     public static SuperNatural instance;
 
     @SidedProxy(clientSide = Constants.CLIENT_PROXY, serverSide = Constants.COMMON_PROXY)

@@ -14,6 +14,7 @@ public class SNItemRender {
 
         regItem(SNItems.silverIngot);
         regItem(SNItems.saltDust);
+        regItem(SNItems.demonBook);
     }
 
     public static void regItem(Item item){

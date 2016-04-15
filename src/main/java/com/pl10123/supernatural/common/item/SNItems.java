@@ -5,6 +5,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class SNItems {
 
+	//Book
+	public static Item demonBook = new DemonBook("demonBook");
+	
     //Ingots
     public static Item silverIngot = new SuperNaturalItem("silverIngot");
 
@@ -15,6 +18,8 @@ public class SNItems {
     public static Item whiteChalk;
 
     public static void initItems(){
+    	
+    	GameRegistry.register(demonBook);
     	
     	GameRegistry.register(silverIngot);
 

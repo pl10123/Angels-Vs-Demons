@@ -15,4 +15,10 @@ public class Constants {
     
     public static final String KEY_CHALK_DAMAGE = "chalkUses";
     public static final int MAX_CHALK_USES = 20;
+    
+    public static final int GUI_BOOK_ID = 1;
+    
+    public static final String GUI_TEXTURES = MODID + ":" + "textures/gui/";
+    
+    public static final String GUI_BOOK_RES = GUI_TEXTURES + "book.png";
 }
