@@ -11,8 +11,8 @@ public class GuiCategoryButton extends GuiButton{
 	ResourceLocation image = null;
 	BookCategory category;
 	
-	public GuiCategoryButton(int buttonId, int x, int y, int widthIn, int heightIn, BookCategory category) {
-		super(buttonId, x, y, widthIn, heightIn, "");
+	public GuiCategoryButton(int buttonId, int x, int y, BookCategory category) {
+		super(buttonId, x, y, 24, 24, "");
 		this.category = category;
 	}
 
@@ -21,7 +21,9 @@ public class GuiCategoryButton extends GuiButton{
 		super.drawButton(mc, mouseX, mouseY);
 	}
 	
-	
+	public BookCategory getCategory(){
+		return category;
+	}
 	
 	
 
