@@ -1,2 +1,2 @@
-# Angels Vs Demons
+# Preternatural
 This is the official repository for the minecraft mod.
