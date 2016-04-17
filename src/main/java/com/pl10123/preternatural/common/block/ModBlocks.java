@@ -14,7 +14,7 @@ public class ModBlocks {
     //Metal Blocks
     public static Block silverBlock = new ModBlock("silverBlock", Material.rock, 3, 15);
     
-    
+    public static Block chalkBlock = new BlockChalk();
 
     public static void initBlocks(){
         //Ores
@@ -24,6 +24,8 @@ public class ModBlocks {
         GameRegistry.register(new ItemBlock(silverOre), silverOre.getRegistryName());
         GameRegistry.register(silverBlock);
         GameRegistry.register(new ItemBlock(silverBlock), silverBlock.getRegistryName());
+        
+        GameRegistry.register(chalkBlock);
     }
 
 }

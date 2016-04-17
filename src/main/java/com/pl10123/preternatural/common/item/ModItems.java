@@ -15,7 +15,7 @@ public class ModItems {
     public static Item saltDust = new ModItem("saltDust");
     
     //Chalks
-    public static Item whiteChalk;
+    public static Item chalk = new ItemChalk();
 
     public static void initItems(){
     	
@@ -25,7 +25,7 @@ public class ModItems {
 
         GameRegistry.register(saltDust);
         
-       // GameRegistry.registerItem(whiteChalk = new ItemChalk(), "chalk"); 
+       GameRegistry.register(chalk); 
     }
 
 }
