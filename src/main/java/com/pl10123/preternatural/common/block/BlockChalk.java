@@ -16,28 +16,37 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockChalk extends Block{
 
-
-
 	public static final PropertyEnum TYPE = PropertyEnum.create("type", BlockChalk.EnumType.class);
 	
-	
 	public BlockChalk() {
-        super(Material.circuits);
+        super(Material.carpet);
 
         this.setUnlocalizedName(Constants.MODID + "." + "blockChalk");
         this.setHardness(0.5F);
         this.setResistance(0.3F);
         this.setRegistryName("blockChalk");
         this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumType.WHITE));
-	}
+	}	
 	
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return new AxisAlignedBB(0,0,0,1,0.1,1);
+	}
+
 	@Override
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list) {
 	    list.add(new ItemStack(itemIn, 1, 0)); 
@@ -63,22 +72,17 @@ public class BlockChalk extends Block{
 		return null;
 	}
 
-
-
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		EnumType type = (EnumType) state.getValue(TYPE);
 	    return type.getID();
 	}
-	
 
 	@Override
 	public int damageDropped(IBlockState state) {
 		return getMetaFromState(state);
 	}
 	
-	
-
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
 			EntityPlayer player) {
@@ -90,7 +94,29 @@ public class BlockChalk extends Block{
 		return item;
 	}
 
+	@Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer()
+    {
+        return BlockRenderLayer.CUTOUT;
+    }
+//
+//    @Override
+//    public boolean isFullCube(IBlockState state)
+//    {
+//        return false;
+//    }
+	@Override
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos,
+			EnumFacing side) {
+		return(side == EnumFacing.UP);
+	}
 
+	@Override
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return false;
+    }
 
 	public enum EnumType implements IStringSerializable {
 		WHITE(0, "white"),

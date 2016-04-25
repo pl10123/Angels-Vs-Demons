@@ -1,0 +1,7 @@
+{
+	"variants":{
+		"type=white":{	"model":"preternatural:chalkBlock_white"	},
+		"type=yellow":{	"model":"preternatural:chalkBlock_yellow"	},
+		"type=red":{		"model":"preternatural:chalkBlock_red"	}
+	}
+}

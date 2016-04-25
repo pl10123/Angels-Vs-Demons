@@ -1,0 +1,27 @@
+{
+    "ambientocclusion": false,
+    "textures": {
+        "overlay": "preternatural:blocks/chalks/overlay",
+		"particle": "preternatural:blocks/chalks/white",
+		"line":"preternatural:blocks/chalks/white"
+    },
+	 "elements": [
+        {   "name":"Line",
+			"from": [ 0, 0.09, 0 ],
+            "to": [ 16, 0.09, 16 ],
+            "shade": false,
+            "faces": {
+                "up": { "uv": [ 0, 0, 16, 16], "texture": "#line", "tintindex": 0 }
+            }
+        },
+        {   "name":"Overlay",
+			"from": [ 0, 0.1, 0 ],
+            "to": [ 16, 0.1, 16 ],
+            "shade": false,
+            "faces": {
+                "up": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay" },
+				"down": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay" }
+            }
+        }
+    ]
+}

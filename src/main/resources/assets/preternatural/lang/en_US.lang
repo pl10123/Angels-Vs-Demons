@@ -5,5 +5,8 @@ tile.preternatural.silverOre.name=Silver Ore
 
 tile.preternatural.silverBlock.name=Silver Block
 
-item.saltDust.name=Salt
-item.silverIngot.name=Silver Ingot
+item.preternatural.saltDust.name=Salt
+item.preternatural.silverIngot.name=Silver Ingot
+item.preternatural.chalk.white.name=White Chalk
+item.preternatural.chalk.red.name=Red Chalk
+item.preternatural.chalk.yellow.name=Yellow Chalk

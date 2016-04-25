@@ -20,6 +20,8 @@ public final class ModBlockRender {
         
         //Metal blocks
         registerBlock(ModBlocks.silverBlock);
+        
+        registerBlock(ModBlocks.chalkBlock);
     }
 
     private static void registerBlock(Block block) {

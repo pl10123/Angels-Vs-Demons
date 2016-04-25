@@ -1,10 +1,12 @@
 package com.pl10123.preternatural.common.item;
 
+import java.awt.Color;
 import java.util.List;
 
 import com.pl10123.preternatural.common.Constants;
 import com.pl10123.preternatural.common.block.ModBlocks;
 
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,8 +21,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemChalk extends ModItem {
+public class ItemChalk extends ModItem implements IItemColor{
 
 	public final static String[] chalkTypes = { "white", "yellow", "red" };
 	public final static String NBT_KEY_TYPE = "CHALK_COLOR";
@@ -54,8 +58,7 @@ public class ItemChalk extends ModItem {
 			newChalk.setTagCompound(tag);
 			subItems.add(newChalk);
 		}
-	}
-	
+	}	
 	
 	@Override
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos,
@@ -68,11 +71,7 @@ public class ItemChalk extends ModItem {
         {
 			stack.damageItem(1, playerIn);
 			String type = stack.getTagCompound().getString(NBT_KEY_TYPE);
-			int meta = 0;
-			for(int i = 0; i < chalkTypes.length; i ++){
-				if(type.equals(chalkTypes[i])) meta = i;
-				break;
-			}
+			int meta = getMetaFromType(stack);
             worldIn.setBlockState(blockpos, ModBlocks.chalkBlock.getStateFromMeta(meta));
             return EnumActionResult.SUCCESS;
         }
@@ -80,6 +79,15 @@ public class ItemChalk extends ModItem {
         {
             return EnumActionResult.FAIL;
         }
+	}
+
+	private int getMetaFromType(ItemStack stack) {
+		String type = stack.getTagCompound().getString(NBT_KEY_TYPE);
+		if(type.contentEquals(chalkTypes[1])){
+			return 1;
+		}else if(type.contentEquals(chalkTypes[2])){
+			return 2;
+		}else return 0;
 	}
 
 	private void decreaseStackUsesLeft(ItemStack stack, EntityLivingBase entity){
@@ -94,7 +102,22 @@ public class ItemChalk extends ModItem {
 			nbt.setInteger(NBT_KEY_USES, left);
 			stack.setTagCompound(nbt);
 		}
-} 
+}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
+		return 0;
+	}
+
+	public static int getColorFromStack(ItemStack stack) {
+		String type = stack.getTagCompound().getString(NBT_KEY_TYPE);
+		int color = 0;
+		if(type.contentEquals("white")) color = Color.WHITE.getRGB();
+		if(type.contentEquals("yellow")) color = Color.YELLOW.getRGB();
+		if(type.contentEquals("red")) color = Color.RED.getRGB();
+		return color;
+	} 
 
 	
 
